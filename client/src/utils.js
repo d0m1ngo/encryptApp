@@ -1,0 +1,1 @@
+export const getElement = (element) => document.querySelector(element);
