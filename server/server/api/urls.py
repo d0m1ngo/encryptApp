@@ -8,4 +8,9 @@ router = DefaultRouter()
 router.register(r'api', views.TextViewSet)
 
 
-urlpatterns = router.urls
+
+urlpatterns = [
+    url(r'encrypt', views.Encrypt.as_view()),
+]
+
+urlpatterns += router.urls

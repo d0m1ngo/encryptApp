@@ -3,7 +3,10 @@ from api.serializers import TextSerializer
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
-import logging
+from rest_framework.parsers import JSONParser
+import json
+from django.http import JsonResponse
+from rest_framework.views import APIView
 
 # Create your views here.
 
@@ -28,3 +31,10 @@ class TextViewSet(viewsets.ViewSet):
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
+class Encrypt(APIView):
+    # parser_classes = (JSONParser,)
+    def get(self, request):
+        # data = request.data
+        # data = json.loads(request.body)
+        return Response({'received data': request.data})
+        # return Response(serializer.data)
