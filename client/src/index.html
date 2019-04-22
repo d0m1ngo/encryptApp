@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-    <form>
+  <body>
+    <article>
+      <form>
+        <p>Enter text to ecnrypt/decrypt here</p>
+        <p id="info" class="none">U need to decrypt first to change</p>
         <textarea name="" id="textinput" cols="30" rows="10"></textarea>
-        <button id="encrypt">ENCRYPT</button>
-        <button id="decrypt">DECRYPT</button>
-        <input type="text" id="input">
-    </form>
-
-</body>
-
+        <p>Enter password for encrypt/decrypt</p>
+        <input type="text" id="input" />
+        <div class="buttons">
+          <button id="encrypt" class="button">ENCRYPT</button>
+          <button id="decrypt" class="button">DECRYPT</button>
+        </div>
+      </form>
+    </article>
+  </body>
 </html>
