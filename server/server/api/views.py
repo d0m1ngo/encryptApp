@@ -38,7 +38,7 @@ class TextViewSet(viewsets.ViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
         else:
             serializer = TextSerializer(filtered_obj)
-            decodedText = decode('1', serializer.data['encrypted_text'])
+            decodedText = decode(request.GET['password'], serializer.data['encrypted_text'])
             if decodedText == serializer.data['default_text']:
                 newData = serializer.data
                 newData['encrypted_text'] = decodedText
@@ -53,8 +53,7 @@ class TextViewSet(viewsets.ViewSet):
     def create(self, request):
         serializer = TextSerializer(data=request.data)
         if serializer.is_valid():
-            print(serializer.validated_data)
-            encodedText = encode('1', serializer.validated_data['default_text'])
+            encodedText = encode(request.data['password'], serializer.validated_data['default_text'])
             serializer.validated_data['encrypted_text'] = encodedText
             serializer.validated_data['encrypted'] = True
             serializer.save()
