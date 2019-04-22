@@ -4,4 +4,4 @@ from api.models import Text
 class TextSerializer(serializers.ModelSerializer):
     class Meta:
         model = Text
-        fields = ('id', 'text', 'encrypted')
+        fields = ('id', 'encrypted_text', 'encrypted', 'default_text')
