@@ -1,0 +1,37 @@
+:root {
+  --width-min: 30rem;
+  --height: 100%;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: var(--width-min) 1fr;
+  grid-template-rows: var(--height) 1fr;
+  grid-template-areas: 'SDB MAN'
+}
+
+
+.sidebar {
+  grid-area: SDB;
+}
+
+.main {
+  grid-area: MAN;
+}
+/* 
+@media (--breakpoint--md) {
+  .grid {
+    -ms-grid-rows: var(--height) auto auto;
+    grid-template-rows: var(--height) auto auto;
+    grid-template-areas: 'HDR SRC' 'SDB SDB' 'MAN MAN';
+  }
+}
+
+@media (--breakpoint--lg) {
+  .grid {
+    -ms-grid-rows: var(--height) 1fr;
+    grid-template-rows: var(--height) 1fr;
+    grid-template-areas: 'HDR SRC' 'SDB MAN';
+  }
+} */
