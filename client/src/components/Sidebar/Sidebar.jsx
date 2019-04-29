@@ -2,33 +2,56 @@ import React, { useState } from "react";
 
 import "./sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = props => {
   const [isOpened, openNext] = useState(false);
   const [innerCategory, setInnerCategory] = useState(null);
-  const stubCategories = { firstCategory: { innerCategoryFirst: "smth", innerCategorysSecond: "smth" }, secondCategory: { inererer: "sss", uheiuewth: "aiushfiauf" } };
+  const stubCategories = props.data;
   const openNewSidebar = item => {
     openNext(true);
     setInnerCategory(item);
+    props.togglePageDisplay();
   };
-  const li = (stubCategories) =>
+
+  const closeNewSidebar = () => {
+    openNext(false);
+    setInnerCategory(null);
+    props.setInitial();
+  };
+  const li = stubCategories =>
     Object.keys(stubCategories).map(item => {
       return (
-        <li onClick={() => openNewSidebar(item)} key={item}>
+        <li onClick={() => openNewSidebar(item)} className="sidebar__item" key={item}>
           {item}
         </li>
       );
     });
+
+  const innerLi = categories => {
+    return categories.map(item => {
+      return (
+        <li
+          key={item.id}
+          onClick={() => {
+            props.setPageData(item);
+          }}
+          className="sidebar__item"
+        >
+          {item.title}
+        </li>
+      );
+    });
+  };
   return (
     <aside className="sidebar">
       {isOpened ? (
         <React.Fragment>
-          <h2>{innerCategory}</h2>
-          <ul>{li(stubCategories[innerCategory])}</ul>
+          <div className="sidebar__header"><div><button onClick={() => closeNewSidebar()}>back</button></div><h3 className="sidebar__header__title">{innerCategory}</h3><div><button>search</button></div></div>
+          <ul className="sidebar__ul">{innerLi(stubCategories[innerCategory])}</ul>
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <h2>Categories</h2>
-          <ul>{li(stubCategories)}</ul>
+          <div className="sidebar__header">Categories</div>
+          <ul className="sidebar__ul">{li(stubCategories)}</ul>
         </React.Fragment>
       )}
     </aside>

@@ -1,3 +1,7 @@
 .mainpage {
     border: 1px solid red
 }
+
+.mainpage__textarea {
+    width: 100%
+}

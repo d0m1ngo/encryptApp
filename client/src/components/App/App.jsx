@@ -1,6 +1,6 @@
 import React from 'react';
-import Sidebar from '../Sidebar/Sidebar';
-import Page from '../Page/Page'
+import Sidebar from '../../containers/SidebarContainer';
+import Page from '../../containers/PageContainer'
 import './App.css';
 
 const App = () => {

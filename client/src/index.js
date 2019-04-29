@@ -8,23 +8,21 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 
 import './index.css';
-// import reducer from './reducers';
+import reducer from './reducers';
 import AppContainer from './components/App/App';
 
 
 
-// const middleware = [thunk];
+const middleware = [thunk];
 // if (process.env.NODE_ENV !== 'production') {
 //   middleware.push(createLogger());
 // }
-// const store = createStore(reducer, applyMiddleware(...middleware));
+const store = createStore(reducer, applyMiddleware(...middleware));
 const rootElement = document.querySelector('.page');
 ReactDOM.render(
-  // <Provider>
-    // <Router basename="/encryptApp">
-      <AppContainer />,
-    // </Router>,
-  // </Provider>,
+  <Provider store={store}>
+      <AppContainer />
+   </Provider>,
   rootElement,
 );
 
