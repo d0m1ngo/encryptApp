@@ -3,17 +3,17 @@ import React from "react";
 import "./page.css";
 
 const Page = props => {
-  const { title, text, innerPageisOpened } = props.data;
+  // const { title, text, innerPageisOpened } = props.data;
   return (
     <div className="mainpage main">
-      {innerPageisOpened ? (
+      {/* {innerPageisOpened ? (
         <React.Fragment>
           <div>
             title: <input type="text" value={title} />
           </div>
           <textarea name="" id="" cols="30" rows="10" className="mainpage__textarea" value={text} />
         </React.Fragment>
-      ) : (
+      ) : ( */}
         <React.Fragment>
           <div>
             <h2>Categories</h2>
@@ -23,7 +23,7 @@ const Page = props => {
             <button>add category</button>
           </div>
         </React.Fragment>
-      )}
+      {/* )} */}
     </div>
   );
 };

@@ -21,8 +21,10 @@ const store = createStore(reducer, applyMiddleware(...middleware));
 const rootElement = document.querySelector('.page');
 ReactDOM.render(
   <Provider store={store}>
+    <Router>
       <AppContainer />
-   </Provider>,
+    </Router>
+  </Provider>,
   rootElement,
 );
 
